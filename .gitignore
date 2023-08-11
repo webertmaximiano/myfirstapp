@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/semana01/myfirstapp
 # misc
 .DS_Store
 .env.local

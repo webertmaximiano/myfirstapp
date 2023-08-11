@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  state = { counter:0 } //variavel de estado que sera modificada
+
+  //funcao que modifica a variavel de estado
+  incrementCounter = ()=> {
+    this.setState({counter:this.state.counter+1}); //pega a variavel de estado e soma +1
+  }
+
+  render() {
+    const colorStyle = { color:this.props.color,fontSize:this.props.size+"px"}
+    return (
+      <div style={colorStyle}>
+        React Component
+        <br /><br />
+        <button onClick={this.incrementCounter}>Click Me!</button>
+        <br /><br />
+        {this.state.counter}
+      </div>
+    );
+  }
 }
 
 export default App;
